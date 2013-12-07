@@ -1,0 +1,17 @@
+{% from "macros/_formhelpers.html" import render_field %}
+<div class="ui attached blue message">
+    <div class="header">
+        {{ _('Register') }}
+    </div>
+</div>
+<form class="ui form segment attached signup-form" method="post">
+    {{ form.csrf_token }}
+    {{ render_field(form.username) }}
+    {{ render_field(form.email) }}
+    {{ render_field(form.password) }}
+    <div class="field">
+        <button class="ui blue submit button js-signup">
+            {{ _('Sign Up') }}
+        </button>
+    </div>
+</form>

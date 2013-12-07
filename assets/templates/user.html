@@ -1,0 +1,12 @@
+<% _.each(data, function(u) { %>
+<div class="item feed-item">
+    <img class="ui avatar image" src="<%= u.avator %>" alt="">
+    <div class="content">
+        <a class="header" href="/-/view/user/<%= u.username %>"><%= u.screen_name %></a>
+        <div class="description">
+            <i class="map marker icon"></i>
+            <%= u.city %>
+        </div>
+    </div>
+</div>
+<% }); %>

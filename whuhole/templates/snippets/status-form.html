@@ -1,0 +1,12 @@
+<form class="ui form publish-form" method="post" action="{{ url_for('hole.index') }}">
+    {{ form.csrf_token }}
+    <div class="field">
+        <textarea name="content" class="publish-input"></textarea>
+    </div>
+    <div class="ui message fn-hide">
+        <div class="header">
+            发送成功!
+        </div>
+    </div>
+    <a class="ui blue button js-publish ng-changeColor">{{ _('Publish') }}</a>
+</form>

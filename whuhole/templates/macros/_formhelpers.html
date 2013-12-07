@@ -1,0 +1,15 @@
+{% macro render_field(field) %}
+<div class="field">
+    <label>{{ field.label }}</label>
+    <div class="ui left labeled input">
+        {{ field(**kwargs) | safe}}
+    </div>
+    {% if field.errors %}
+    <div class="ui red pointing above ui label">
+        {% for error in field.errors %}
+        {{ error }}
+        {% endfor %}
+    </div>
+    {% endif %}
+</div>
+{% endmacro %}

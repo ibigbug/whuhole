@@ -1,0 +1,24 @@
+<% _.each(data, function(s) {  %>
+<div id="feed-<%= s.id %>" class="event feed-item">
+    <div class="label">
+        <a href="/-/view/user/<%= s.owner.id %>"><img src="<%= s.owner.profile.avator %>"></a>
+    </div>
+    <div class="content">
+        <div class="date">
+            <%= s.created %>
+        </div>
+        <div class="summary">
+            <%= s.content %>
+        </div>
+        <div class="extra">
+            <a class="js-like" href="javascript:;"><i class="icon thumbs up outline"></i>喜欢</a>
+            <a class="js-reply" href="javascript:;">回复(0)</a>
+            <div class="ui pointing above label reply-area">
+                <div class="ui fluid input">
+                    <input class="js-reply-input reply-input" type="text" placeholder="回复">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<% }); %>
