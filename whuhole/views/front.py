@@ -16,6 +16,6 @@ def home(view=None):
         if g.user:
             html = render_template('snippets/status-form.html', form=form)
         else:
-            render_template('snippets/welcome.html')
+            return render_template('snippets/welcome.html')
         return jsonify({'stat': 'ok', 'data': html})
     return render_template('index.html')
