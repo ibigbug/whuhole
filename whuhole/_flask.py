@@ -20,6 +20,7 @@ class Flask(_Flask):
     jinja_options = ImmutableDict(
         extensions=[
             'jinja2.ext.autoescape',
-            'jinja2.ext.do'
+            'jinja2.ext.do',
+            'jinja2.ext.with_'
         ]
     )

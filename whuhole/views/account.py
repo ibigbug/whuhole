@@ -25,12 +25,12 @@ def signup():
     if token:
         user = verify_auth_token(token, 1)
         if not user:
-            flash('Invalid or expired token.', 'error')
+            flash('Invalid or expired token.', 'red')
             return redirect(next_url)
         user.role = 'user'
         user.save()
         login_user(user)
-        flash('Your account is verified successfully', 'success')
+        flash('Your account is verified successfully', 'green')
         return redirect(next_url)
 
     form = SignupForm()
@@ -78,14 +78,17 @@ def setting():
 
     form = SettingForm(obj=profile)
     next_url = request.args.get('next', url_for('.setting'))
-    if form.validate_on_submit():
-        form.populate_obj(profile)
-        profile.save()
-        return jsonify({'stat': 'ok', 'data': message})
 
     if request.headers.get('X-Requested-With'):
         html = render_template('account/setting.html', form=form)
         return jsonify({'stat': 'ok', 'data': html})
+
+    if form.validate_on_submit():
+        form.populate_obj(profile)
+        profile.save()
+        flash(str(_(u'Profile Updated')), 'green')
+        return redirect(next_url)
+
     return render_template('index.html')
 
 

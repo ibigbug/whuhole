@@ -43,6 +43,15 @@
             </div>
         </div>
         <div class="main">
+            {% with messages = get_flashed_messages(true) %}
+            {% if messages %}
+            {% for color, message in messages %}
+            <div class="ui message {{ color }}">
+                {{ message }}
+            </div>
+            {% endfor %}
+            {% endif %}
+            {% endwith %}
             <div class="js-mainarea">
                 <!--fill by js-->
             </div>
