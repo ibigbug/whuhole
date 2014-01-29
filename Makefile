@@ -19,3 +19,6 @@ babel-update: babel-extract
 py_files := $(shell find whuhole -name '*.py' ! -path '*__init__.py')
 lint:
 	@flake8 $(py_files)
+
+clean:
+	rm -rf build *.egg-info dist
