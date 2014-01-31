@@ -1,9 +1,11 @@
-from flask import BluePrint
+from flask import Blueprint
+from flask import request
 
 from ..models import topic
 
-bp = BluePrint(__name__)
+bp = Blueprint('api', __name__)
 
-@bp.route('/topic/add', methods=['PUT'])
+@bp.route('/topic/add', methods=['GET', 'PUT'])
 def topic_add():
-    pass
+    if request.method == 'GET':
+        return 'aaa'

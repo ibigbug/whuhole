@@ -1,0 +1,11 @@
+<form action="" method="post">
+    {% if form.errors %}
+    {% for k,v in form.errors.items() %}
+    {{ k }} {{ v }}
+    {% endfor %}
+    {% endif %}
+    {{ form.csrf_token() }}
+    {{ form.username }}
+    {{ form.password }}
+    <button type="submit">Register</button>
+</form>
