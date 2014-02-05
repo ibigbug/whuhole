@@ -5,3 +5,5 @@ db_path = os.path.join(proj_dir, 'whuhole.sqlite')
 DEBUG = True
 SECRET_KEY = 'secret key'
 SQLALCHEMY_DATABASE_URI = 'sqlite:///%s' % db_path
+
+SITE_TITLE = 'WHU Hole'

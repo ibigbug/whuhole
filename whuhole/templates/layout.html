@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=egde">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/static/whuhole.css" media="all">
+    <title>{% if site_name %} {{ site_name }} {% else %} 首页 {% endif %}&middot; {{ config.SITE_TITLE }}</title>
+</head>
+<body>
+    <div class="header">
+                <div class="center-block page-header">
+                    <h1>WHU Hole<small>欢迎使用武大树洞</small></h1>
+                </div>
+    </div>
+    <div class="container">
+        {% block main%}
+        {% endblock %}
+    </div>
+    <div class="footer">
+        <div class="inner-footer">
+            武大树洞 2014
+        </div>
+    </div>
+    <script src="/static/whuhole.js"></script>
+</body>
+</html>

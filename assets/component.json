@@ -1,0 +1,19 @@
+{
+  "name": "whuhole",
+  "repo": "ibigbug/whuhole",
+  "description": "whuhole static",
+  "version": "0.0.1",
+  "keywords": [],
+  "dependencies": {
+    "amasad/bootstrap-css": "*"
+  },
+  "development": {},
+  "license": "MIT",
+  "main": "index.js",
+  "scripts": [
+    "index.js"
+  ],
+  "styles": [
+    "whuhole.css"
+  ]
+}

@@ -24,9 +24,11 @@ def create_app():
 def register_routes(app):
     from views import api
     from views import account
+    from views import front
 
     app.register_blueprint(api.bp, url_prefix='/api')
     app.register_blueprint(account.bp, url_prefix='/account')
+    app.register_blueprint(front.bp, url_prefix='/')
 
 
 def main():
