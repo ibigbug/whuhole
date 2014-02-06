@@ -1,15 +1,22 @@
+#coding: utf-8
+
 from flask import Blueprint
 from flask import redirect
+from flask import request
+from flask import g
+from flask import flash
 from flask import render_template
 
 from ..forms import RegisterForm
 from ..forms import LoginForm
+from ..forms import ProfileForm
 
 from ..models import Account
 from ..models import Profile
 
 from ..helpers import login_user
 from ..helpers import logout_user
+from ..helpers import login_required
 
 
 bp = Blueprint('account', __name__)
@@ -54,3 +61,18 @@ def logout():
     next_url = '/'
     logout_user()
     return redirect(next_url)
+
+
+@bp.route('/profile', methods=['GET', 'POST'])
+@login_required
+def profile():
+    next_url = request.url
+    profile = g.user.profile
+    form = ProfileForm(obj=profile)
+    if form.validate_on_submit():
+        form.populate_obj(profile)
+        profile.save()
+        flash(u'更新成功', 'success')
+        return redirect(next_url)
+
+    return render_template('account/profile.html', form=form)

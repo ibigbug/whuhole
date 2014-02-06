@@ -12,8 +12,19 @@
         {% include "snippets/nav.html" %}
     </div>
     <div class="container">
-        {% block main%}
-        {% endblock %}
+        <div class="wrap center-block">
+            {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+            <div class="flashes">
+                {% for cate, msg in messages %}
+                <p class="alert alert-{{ cate }}"> {{ msg }} </p>
+                {% endfor %}
+            </div>
+            {% endif %}
+            {% endwith %}
+            {% block main%}
+            {% endblock %}
+        </div>
     </div>
     <div class="footer">
         <div class="inner-footer">
@@ -21,5 +32,8 @@
         </div>
     </div>
     <script src="/static/whuhole.js"></script>
+    <script>
+        require('whuhole');
+    </script>
 </body>
 </html>

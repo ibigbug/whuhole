@@ -6,5 +6,5 @@ bp = Blueprint('front', __name__)
 
 
 @bp.route('/', methods=['GET'])
-def home_page():
+def index():
     return render_template('front/index.html')

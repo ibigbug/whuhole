@@ -14,7 +14,9 @@ class Account(db.Model, SessionMixin):
     created = db.Column(db.DateTime, default=datetime.datetime.now)
     updated = db.Column(db.DateTime, default=datetime.datetime.now)
 
-    profile = db.relationship('Profile', uselist=False, backref='persion')
+    profile = db.relationship('Profile', uselist=False, backref='account')
+    topic = db.relationship('Topic', backref='account', lazy='dynamic')
+    reply = db.relationship('Reply', backref='account', lazy='dynamic')
 
     def set_password(self):
         if not self.password:

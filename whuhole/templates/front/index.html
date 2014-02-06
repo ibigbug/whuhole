@@ -1,14 +1,13 @@
 {% extends "layout.html" %}
 {% block main %}
-<div class="container">
-    <div class="logo text-center">
-        <h1>WHU Hole</h1>
-    </div>
-    <div class="form-container">
-        <form method="post" action="{{ url_for('topic.update') }}">
+<div class="logo text-center">
+    <h1>WHU Hole</h1>
+</div>
+<div class="form-container clearfix">
+    <form method="post" action="{{ url_for('topic.update') }}">
         <textarea class="form-control" name="topic" rows="3" cols="5"></textarea>
         <button class="btn btn-primary pull-right" type="submit">发布</button>
-        </form>
-    </div>
+    </form>
 </div>
+{% include "snippets/topic-stream.html" %}
 {% endblock %}

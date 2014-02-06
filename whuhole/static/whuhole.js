@@ -11806,7 +11806,7 @@ var jQuery =  require("jquery");
 module.exports = jQuery;
 });
 require.register("whuhole/index.js", function(exports, require, module){
-var jquery = require('bootstrap');
+var $ = require('bootstrap');
 
 });
 require.alias("brighthas-bootstrap/dist/js/bootstrap.js", "whuhole/deps/bootstrap/dist/js/bootstrap.js");
