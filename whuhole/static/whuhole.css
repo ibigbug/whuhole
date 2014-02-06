@@ -6909,3 +6909,21 @@ td.visible-print {
 .wrap {
   max-width: 980px;
 }
+.form-container {
+  width: 50%;
+  margin: 0 auto;
+  margin-top: 2em;
+}
+.form-container button {
+  margin-top: 0.5em;
+}
+.footer {
+  border-top: 0.1em solid #eee;
+  text-align: center;
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+}
+.inner-footer {
+  margin: 1em;
+}
