@@ -11807,6 +11807,16 @@ module.exports = jQuery;
 });
 require.register("whuhole/index.js", function(exports, require, module){
 var $ = require('bootstrap');
+$('.js-logout').click(function () {
+  var url = $(this).data('url');
+
+  var logout_xhr = $.ajax({
+    type: 'POST',
+    url: url
+  }).done(function () {
+    location.reload();
+  });;
+});
 
 });
 require.alias("brighthas-bootstrap/dist/js/bootstrap.js", "whuhole/deps/bootstrap/dist/js/bootstrap.js");
