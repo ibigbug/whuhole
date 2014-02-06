@@ -5,7 +5,7 @@
   "version": "0.0.1",
   "keywords": [],
   "dependencies": {
-    "amasad/bootstrap-css": "*"
+    "brighthas/bootstrap": "*"
   },
   "development": {},
   "license": "MIT",

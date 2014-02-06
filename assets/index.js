@@ -1,1 +1,1 @@
-require('bootstrap-css');
+var jquery = require('bootstrap');

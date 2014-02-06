@@ -1,9 +1,14 @@
 {% extends "layout.html" %}
 {% block main %}
-<div class="row">
-    <div class="col-md-6">
+<div class="container">
+    <div class="logo text-center">
+        <h1>WHU Hole</h1>
     </div>
-    <div class="col-md-6">
+    <div class="row">
+        <form method="post" action="{{ url_for('topic.update') }}" class="center-block">
+        <textarea class="form-control" name="topic" rows="3" cols="5"></textarea>
+        <button class="btn btn-primary pull-right" type="submit">发布</button>
+        </form>
     </div>
 </div>
 {% endblock %}
