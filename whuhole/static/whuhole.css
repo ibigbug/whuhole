@@ -6922,14 +6922,14 @@ td.visible-print {
 .footer {
   border-top: 0.1em solid #eee;
   text-align: center;
-  position: fixed;
+  position: relative;
   width: 100%;
   bottom: 0;
 }
 .inner-footer {
   margin: 1em;
 }
-.topic-stream .list-group-item:first-child {
+.topic-stream .topic-list >.list-group-item:first-child {
   border-top-left-radius: 0;
   border-top-right-radius: 0;
   border-top: none;
@@ -6938,4 +6938,16 @@ td.visible-print {
   margin-top: 1.5em;
   border-top: 0.1em solid #eee;
   padding-top: 0.8em;
+}
+.topic-list .toolbar .reply-form {
+  margin-top: 1em;
+}
+.topic-list .toolbar .reply-form textarea {
+  height: 2.5em;
+  margin-bottom: 0.5em;
+  width: 90%;
+  margin-right: -100%;
+}
+.reply-list {
+  margin-top: 2em;
 }

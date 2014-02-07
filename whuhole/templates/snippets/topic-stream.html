@@ -8,8 +8,22 @@
         <div class="list-group-item">
             <p>{{ topic.content }}</p>
             <div class="toolbar clearfix text-muted">
-                <small class="pull-left">回复({{ topic.reply_count }}) 赞({{ topic.up }}) 不赞(-{{ topic.down }})</small>
+                <small class="pull-left">回复({{ topic.reply.count() }}) 赞({{ topic.up }}) 不赞(-{{ topic.down }})</small>
                 <small class="pull-right">{{ topic.account.profile.screen_name }} 发布于 {{ topic.created }}</small>
+                <div class="clearfix"></div>
+                <ul class="list-group reply-list">
+                    {% for reply in topic.reply %}
+                    <li class="list-group-item">
+                        {{ reply.content }} <small class="pull-right">{{ reply.account.profile.screen_name }} on {{ reply.created }}</small>
+                    </li>
+                    {% endfor %}
+                </ul>
+                <div class="reply-form">
+                    <form role="form" action="{{ url_for('api.topic_reply', topic_id=topic.id) }}" method="post">
+                        <textarea class="form-control pull-left" name="reply"></textarea>
+                        <button class="btn btn-primary pull-right" type="submit">回复</button>
+                    </form>
+                </div>
             </div>
         </div>
         {% endfor %}
