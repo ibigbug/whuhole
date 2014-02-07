@@ -1,3 +1,4 @@
+# coding: utf-8
 import functools
 
 from flask import session
@@ -5,6 +6,7 @@ from flask import g
 from flask import url_for
 from flask import request
 from flask import redirect
+from flask import flash
 
 from models import Account
 
@@ -40,6 +42,7 @@ def login_required(method):
             url = url_for('account.login')
             if '?' not in url:
                 url += '?next=' + request.url
+            flash(u'请登录后再操作', 'info')
             return redirect(url)
 
         return method(*args, **kwargs)

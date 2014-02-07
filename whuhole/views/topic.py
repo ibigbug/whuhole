@@ -19,8 +19,8 @@ def update():
     topic_content = request.form['topic']
     topic = Topic()
     topic.content = topic_content
-    topic.owner_id = g.user.id
+    topic.account_id = g.user.id
     topic.save()
 
-    flash(u'发布成功')
+    flash(u'发布成功', 'success')
     return redirect('/')
