@@ -19,12 +19,12 @@
                         ({{ topic.up }})
                     </span>
                 </small>
-                <small class="pull-right">{{ topic.account.profile.screen_name }} 发布于 {{ topic.created }}</small>
+                <small class="pull-right">{{ topic.account.profile.screen_name }} 发布于 <time class="timeago" datetime="{{ topic.created }}"></time></small>
                 <div class="clearfix"></div>
                 <ul class="list-group reply-list">
                     {% for reply in topic.reply %}
                     <li class="list-group-item">
-                        {{ reply.content }} <small class="pull-right">{{ reply.account.profile.screen_name }} on {{ reply.created }}</small>
+                        {{ reply.content }} <small class="pull-right">{{ reply.account.profile.screen_name }} 回复于 <time class="timeago" datetime="{{ reply.created }}"></time></small>
                     </li>
                     {% endfor %}
                 </ul>

@@ -5,7 +5,8 @@
   "version": "0.0.1",
   "keywords": [],
   "dependencies": {
-    "brighthas/bootstrap": "*"
+    "brighthas/bootstrap": "*",
+    "moment/moment": "*"
   },
   "development": {},
   "license": "MIT",

@@ -1,6 +1,6 @@
 
 build: components index.js stylus
-	@component build -o ../whuhole/static/ -n whuhole -p .
+	@component build -o ../whuhole/static/ -n whuhole -p . -c
 
 stylus:
 	@stylus -I ./styles whuhole.styl
