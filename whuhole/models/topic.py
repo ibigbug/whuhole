@@ -14,8 +14,8 @@ class Topic(db.Model, SessionMixin):
     reply_count = db.Column(db.Integer, default=0)
 
     account_id = db.Column(db.Integer, db.ForeignKey('account.id'))
-    reply = db.relationship('Reply', backref='topic',
-                            lazy='dynamic')
+    reply = db.relationship('Reply', backref='topic', lazy='dynamic')
+    like = db.relationship('Like', backref='topic', lazy='dynamic')
 
     def __repr__(self):
         return '<Topic %s>' % self.id
@@ -36,3 +36,9 @@ class Reply(db.Model, SessionMixin):
 
     def __repr__(self):
         return '<Reply %s>' % self.id
+
+
+class Like(db.Model, SessionMixin):
+    id = db.Column(db.Integer, primary_key=True)
+    account_id = db.Column(db.Integer, db.ForeignKey('account.id'))
+    topic_id = db.Column(db.Integer, db.ForeignKey('topic.id'))

@@ -6951,3 +6951,6 @@ td.visible-print {
 .reply-list {
   margin-top: 2em;
 }
+.js-like {
+  cursor: pointer;
+}

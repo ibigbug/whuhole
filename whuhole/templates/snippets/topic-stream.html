@@ -8,7 +8,17 @@
         <div class="list-group-item">
             <p>{{ topic.content }}</p>
             <div class="toolbar clearfix text-muted">
-                <small class="pull-left">回复({{ topic.reply.count() }}) 赞({{ topic.up }}) 不赞(-{{ topic.down }})</small>
+                <small class="pull-left">
+                    回复({{ topic.reply.count() }})
+                    <span class="js-like" data-url="{{ url_for('api.topic_like', topic_id=topic.id) }}">
+                        {% if topic.id in liked_id_list %}
+                        取消赞
+                        {% else %}
+                        赞
+                        {% endif %}
+                        ({{ topic.up }})
+                    </span>
+                </small>
                 <small class="pull-right">{{ topic.account.profile.screen_name }} 发布于 {{ topic.created }}</small>
                 <div class="clearfix"></div>
                 <ul class="list-group reply-list">

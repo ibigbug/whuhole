@@ -17,6 +17,7 @@ class Account(db.Model, SessionMixin):
     profile = db.relationship('Profile', uselist=False, backref='account')
     topic = db.relationship('Topic', backref='account', lazy='dynamic')
     reply = db.relationship('Reply', backref='account', lazy='dynamic')
+    like = db.relationship('Like', backref='account', lazy='dynamic')
 
     def set_password(self):
         if not self.password:

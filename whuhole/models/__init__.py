@@ -1,4 +1,5 @@
+# flake-8: noqa
 from .database import db
 
-from .account import Account, Profile
-from .topic import Topic, Reply
+from .account import *
+from .topic import *

@@ -11818,6 +11818,16 @@ $('.js-logout').click(function () {
   });;
 });
 
+$('.js-like').click(function () {
+  var url = $(this).data('url');
+  var like_xhr = $.ajax({
+    type: 'POST',
+    url: url
+  }).done(function () {
+    location.reload();
+  });
+});
+
 });
 require.alias("brighthas-bootstrap/dist/js/bootstrap.js", "whuhole/deps/bootstrap/dist/js/bootstrap.js");
 require.alias("brighthas-bootstrap/dist/js/bootstrap.js", "whuhole/deps/bootstrap/index.js");
