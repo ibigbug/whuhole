@@ -13,16 +13,6 @@ from ..helpers import login_required
 bp = Blueprint('api', __name__)
 
 
-@bp.route('/topic/latest')
-def topic_by_time():
-    pass
-
-
-@bp.route('/user/latest')
-def user_by_time():
-    pass
-
-
 @bp.route('/topic/<int:topic_id>/reply', methods=['POST'])
 @login_required
 def topic_reply(topic_id):

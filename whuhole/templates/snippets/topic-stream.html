@@ -1,7 +1,7 @@
 <div class="topic-stream center-block">
     <ul class="nav nav-tabs nav-justified">
-        <li class="active"><a href="javascript:;">最新树洞</a></li>
-        <li class=""><a href="{{ url_for('api.user_by_time') }}">活跃用户</a></li>
+        <li class="active"><a href="{{ url_for('front.index') }}">最新树洞</a></li>
+        <li class=""><a href="{{ url_for('front.user_list') }}">活跃用户</a></li>
     </ul>
     <div class="topic-list list-group">
         {% for topic in topics %}

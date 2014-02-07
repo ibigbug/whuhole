@@ -35,7 +35,7 @@ def register_routes(app):
 
     app.register_blueprint(api.bp, url_prefix='/api')
     app.register_blueprint(account.bp, url_prefix='/account')
-    app.register_blueprint(front.bp, url_prefix='/')
+    app.register_blueprint(front.bp, url_prefix='')
     app.register_blueprint(topic.bp, url_prefix='/topic')
 
 
