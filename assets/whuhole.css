@@ -1,6 +1,10 @@
 .wrap {
   max-width: 60%;
 }
+.logo h1 {
+  font-family: 'Frijole', cursive;
+  font-size: 5em;
+}
 .form-container {
   margin: 0 auto;
   margin-top: 2em;
