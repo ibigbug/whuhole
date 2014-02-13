@@ -1,13 +1,13 @@
 {% extends "layout.html" %}
 {% from "snippets/macros.html" import render_pagination %}
 {% block main %}
-<div class="page-header">
+<div class="page-header clearfix">
     <h3>活跃用户</h3>
 </div>
 <div class="list-group user-list">
     {% for user in pagination.items %}
     <div class="list-group-item clearfix">
-        <h3>{{ user.profile.screen_name }}
+        <h3><a href="{{ url_for('front.user_profile', user_id=user.id) }}">{{ user.profile.screen_name }}</a>
             <small class="pull-right">
                 上次活跃 <time class="timeago" datetime="{{ user.updated }}"></time>
             </small>

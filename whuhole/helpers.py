@@ -1,4 +1,5 @@
 # coding: utf-8
+import datetime
 import functools
 
 from flask import session
@@ -47,6 +48,17 @@ def login_required(method):
                 url += '?next=' + request.url
             flash(u'请登录后再操作', 'info')
             return redirect(url)
+
+        return method(*args, **kwargs)
+    return wrapper
+
+
+def update_user(method):
+    @functools.wraps(method)
+    def wrapper(*args, **kwargs):
+        user = Account.query.filter_by(id=g.user.id).first()
+        user.updated = datetime.datetime.now()
+        user.save()
 
         return method(*args, **kwargs)
     return wrapper

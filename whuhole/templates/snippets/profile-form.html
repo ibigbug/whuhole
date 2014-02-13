@@ -1,4 +1,4 @@
-{% if user.id == g.user.id %}
+{% if not user %}
 {% from "snippets/macros.html" import render_field %}
 <form class="form-horizontal" role="form" action="{{ url_for('account.profile') }}" method="post">
     {{ form.csrf_token() }}

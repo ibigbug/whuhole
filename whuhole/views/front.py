@@ -26,7 +26,7 @@ def index():
 @bp.route('/users', defaults=dict(page=1))
 @bp.route('/users/page/<int:page>')
 def user_list(page):
-    pagination = Account.query.paginate(page)
+    pagination = Account.query.order_by('updated desc').paginate(page)
     return render_template('front/user-list.html', pagination=pagination)
 
 

@@ -9,12 +9,14 @@ from flask import redirect
 from ..models import Topic
 
 from ..helpers import login_required
+from ..helpers import update_user
 
 bp = Blueprint('topic', __name__)
 
 
 @bp.route('/update', methods=["POST"])
 @login_required
+@update_user
 def update():
     topic_content = request.form['topic']
     topic = Topic()

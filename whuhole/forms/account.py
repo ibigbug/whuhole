@@ -1,6 +1,8 @@
 # coding: utf-8
 from werkzeug import check_password_hash
 
+from flask import flash
+
 from flask.ext.wtf import Form
 from wtforms.fields import StringField
 from wtforms.fields import PasswordField
@@ -9,6 +11,7 @@ from wtforms.fields import TextAreaField
 from wtforms.validators import ValidationError
 
 from ..models import Account
+from ..models import Profile
 
 
 class AccountBaseForm(Form):
@@ -42,3 +45,9 @@ class ProfileForm(Form):
     location = StringField(u'居住地')
     website = StringField(u'个人主页')
     description = TextAreaField(u'个人简介')
+
+    def validate_email(self, field):
+        profile = Profile.query.filter_by(email=field.data).first()
+        if profile:
+            flash(u'邮箱地址已被他人使用', 'danger')
+            raise ValidationError(u'邮箱地址已被他人使用')
