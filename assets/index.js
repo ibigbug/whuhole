@@ -26,3 +26,7 @@ $('.js-like').click(function () {
     location.reload();
   });
 });
+
+$('.js-reply').click(function () {
+  $(this).parentsUntil('.list-group-item').find('.reply-list').toggleClass('hidden')
+});

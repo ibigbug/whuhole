@@ -6,6 +6,7 @@ from flask import g
 from flask import url_for
 from flask import request
 from flask import redirect
+from flask import jsonify
 from flask import flash
 
 from models import Account
@@ -40,7 +41,7 @@ def login_required(method):
     def wrapper(*args, **kwargs):
         if not g.user:
             if request.is_xhr:
-                return jsonify(stat='fail',message=u'请登录再操作')
+                return jsonify(stat='fail', message=u'请登录再操作')
             url = url_for('account.login')
             if '?' not in url:
                 url += '?next=' + request.url

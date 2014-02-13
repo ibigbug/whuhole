@@ -1,5 +1,5 @@
+{% if user.id == g.user.id %}
 {% from "snippets/macros.html" import render_field %}
-
 <form class="form-horizontal" role="form" action="{{ url_for('account.profile') }}" method="post">
     {{ form.csrf_token() }}
     {{ render_field(form.email) }}
@@ -13,3 +13,14 @@
         </div>
     </div>
 </form>
+
+{% else %}
+<form class="form-horizontal">
+{% from "snippets/macros.html" import render_field_static %}
+    {{ render_field_static(form.email) }}
+    {{ render_field_static(form.screen_name) }}
+    {{ render_field_static(form.location) }}
+    {{ render_field_static(form.website) }}
+    {{ render_field_static(form.description) }}
+</form>
+{% endif %}
